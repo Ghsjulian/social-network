@@ -1,0 +1,145 @@
+:root {
+    --bg: #ffffff;
+    --mainColor: rgb(0, 224, 255);
+}
+html {
+    font-size: 100%;
+}
+body {
+    transition: 0.5s;
+    background: #ebebeb;
+    margin: 0.2rem;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input,
+button {
+    outline: none;
+}
+
+.side-bar {
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: var(--bg);
+    padding: 1.3rem 0.5rem;
+    align-items: center;
+    z-index: 9999;
+    overflow: auto;
+    padding-bottom: 3.5rem;
+    transition: 0.5s;
+}
+
+.side-bar h2 {
+    margin: 0.5rem 1rem;
+    align-items: center;
+    text-align: left;
+    color: #484848;
+    font-weight: 700;
+    align-items: center;
+    display: flex;
+}
+.side-bar h2 img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    margin: 0 0.8rem;
+}
+
+.side-bar li {
+    margin: 0.9rem auto;
+    display: flex;
+    align-items: center;
+}
+.side-bar .active {
+    color: #fff;
+    background: rgba(0, 99, 108, 0.397);
+    border-radius: 8px;
+}
+.side-bar li a {
+    display: flex;
+    align-items: center;
+    color: #5a5a5a;
+    font-weight: 500;
+    font-size: 17px;
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    transition: 0.3s ease-out;
+}
+
+.side-bar li a:hover {
+    background: rgba(78, 239, 255, 0.188);
+}
+
+.side-bar li a img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    margin: 0 0.8rem;
+}
+
+.header {
+    position: fixed;
+    background: var(--bg);
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.3rem 0.1rem;
+    box-shadow: 0 -1px 3px rgba(241, 241, 241, 0.142);
+    z-index: 10000;
+    border-bottom: 0.1px solid gray;
+}
+
+.header span,
+a {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 50%;
+    box-shadow: none;
+}
+
+.header span img {
+    width: 23px;
+    height: 23px;
+    object-fit: fill;
+}
+
+.header a img {
+    width: 25px;
+    height: 25px;
+    object-fit: fill;
+}
+
+.mobile-nav {
+    width: 60%;
+    display: block;
+    box-shadow: 2px 0.6px 7px rgba(200, 200, 200, 0.469);
+}
+
+/*   MAIN CONTAINER   */
+
+.main-container {
+    position: relative;
+    background: red;
+    align-items: center;
+    justify-content: center;
+    margin: 0.7rem auto;
+    display: flex;
+}
+
+.main-container h2 {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: rgb(56, 180, 234);
+    font-size: 2rem;
+}

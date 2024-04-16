@@ -1,0 +1,144 @@
+/*=========CREATING ANIMATION==========*/
+@keyframes open {
+    0% {
+        transform: scale(0, 0);
+    }
+
+    25% {
+        transform: scale(0.5, 0.5);
+    }
+
+    50% {
+        transform: scale(1, 1);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+/*========RESPONSIVE STYLING==========*/
+
+@media (max-width: 1600px) {
+    .header {
+        width: 80%;
+        left: 20%;
+    }
+
+    .side-bar {
+        display: block;
+        width: 20%;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #profile {
+        display: block;
+    }
+
+    #profile--feed {
+        padding: 0.5rem 0.3rem;
+        margin: 0 0.5rem;
+    }
+    .write--post textarea {
+        width: 50%;
+    }
+    .write--post,
+    .post--area {
+        width: 90%;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1400px) {
+    .header {
+        width: 80%;
+        left: 20%;
+    }
+
+    .side-bar {
+        display: block;
+        width: 20%;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #profile {
+        display: block;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        width: 80%;
+        left: 20%;
+    }
+
+    .side-bar {
+        display: block;
+        width: 30%;
+    }
+
+    #menu {
+        display: none;
+    }
+
+    #profile {
+        display: block;
+    }
+}
+@media (max-width: 780px) {
+    .side-bar {
+        display: none;
+        width: 60%;
+        top: 3rem;
+    }
+
+    .header {
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    #profile {
+        display: none;
+    }
+
+    .main-comtainer {
+        width: 100%;
+        top: 20%;
+        left: 0;
+        padding: 0.7rem 0;
+        margin: auto;
+    }
+    #profile--feed {
+        position: relative;
+        overflow: hidden;
+        height: auto;
+    }
+    .box .profile {
+        position: relative;
+        overflow: hidden;
+    }
+    .write--post textarea {
+        width: 80%;
+    }
+    .write--post,
+    .post--area {
+        width: 100%;
+    }
+    #profile--feed {
+        padding: 0 0;
+        margin: 0 0;
+    }
+}
