@@ -53,7 +53,6 @@ class API {
         expirationDate.setTime(expirationDate.getTime() - 1);
         document.cookie = `${cookieName}=; expires=${expirationDate.toUTCString()}; path=/`;
     }
-
     getCookie(cname) {
         var name = cname + "=";
         var decodedCookie = decodeURIComponent(document.cookie);
@@ -69,7 +68,6 @@ class API {
         }
         return "";
     }
-
     async getImgString(imgSrc, useCall) {
         try {
             var reader = new FileReader();
@@ -84,7 +82,6 @@ class API {
             console.log(e);
         }
     }
-
     getImgData(imgSrc, useCall) {
         fetch(imgSrc)
             .then(response => response.blob())
@@ -97,7 +94,6 @@ class API {
                 };
             });
     }
-
     previewImage(input, preview) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -106,6 +102,20 @@ class API {
             };
             reader.readAsDataURL(input.files[0]);
         }
+    }
+    
+    getFile(fileName,useCallback){
+        const target = fileName.files[0];
+        const reader = new FileReader();
+        reader.onload = event => {
+            const fileData = {
+                name: target.name,
+                type: target.type,
+                data: btoa(event.target.result)
+            };
+            useCallback(fileData)
+            reader.readAsBinaryString(target);
+    }
     }
 }
 /*

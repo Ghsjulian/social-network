@@ -34,7 +34,7 @@ const getCookie = cname => {
 const getUser = () => {
     let session = [];
     let tok = getCookie("user_token");
-    let url = "http://localhost:8080/get-user";
+    let url = "http://localhost:8080/users";
     __api__.postData(url, { user_token: tok }, res => {
         session.push(res);
     });
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(Reducer, initialstate);
     const getUserById = obj => {
         let user = [];
-        let url = "http://localhost:8080/get-user";
+        let url = "http://localhost:8080/users";
         __api__.postData(url, obj, res => {
             user.push(res);
         });

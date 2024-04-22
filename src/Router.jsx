@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Protect from "./protect/Protect";
 import MyContext from "./test/MyContext";
 import UserProfile from "./pages/UserProfile";
+import Chatbox from "./pages/Chatbox";
+
 
 const MyRoutes = [
     {
@@ -29,8 +31,8 @@ const MyRoutes = [
         )
     },
     {
-        path: "/test",
-        element: <UserProfile />
+        path: "/chat",
+        element: <Chatbox />
     },
     {
         path: "/home",

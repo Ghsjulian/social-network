@@ -1,25 +1,41 @@
 <?php
-require_once __DIR__ . "/assets/auth/__ghs__.php";
+require_once __DIR__ . "/assets/router/__router__.php";
+require_once __DIR__ . "/assets/__ghs__.php";
 
-$url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$requestMethod = $_SERVER["REQUEST_METHOD"];
+$router = new Router();
 
-$isError = false;
-$file = __DIR__ . "/assets/json/config.json";
-$config = json_decode(file_get_contents($file), true);
-foreach ($config["routes"] as $path => $value) {
-  if ($path === $url) {
-    $isError = true;
-    require_once __DIR__ . $value;
-    break;
-  } 
+$home_path = [
+  "/",
+  "/home",
+  "/root",
+  "/main",
+  "/dir",
+  "/path",
+  "/directory",
+  "/index",
+  "/default",
+];
+// Request For Home Page
+
+foreach ($home_path as $path) {
+  $router->get($path, "Home@index");
 }
-if (!$isError) {
-  echo json_encode([
-    "code" => 404,
-    "status" => "failed",
-    "type" => "error",
-    "message" => "URL Doesn't Exist !",
-  ]);
-}
+
+
+
+// Register a POST request for the /person endpoint
+$router->post("/login", "login@index");
+$router->post("/signup", "signup@index");
+$router->get("/users", "User@index");
+$router->get("/set-config", "Config@setConfig");
+$router->get("/show-config", "Config@showMessage");
+$router->post("/config", "Config@index");
+
+// Run the router and handle the request
+$router->run();
+
+
+
+
+
 ?>

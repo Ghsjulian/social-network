@@ -27,7 +27,7 @@ const UserProfile = () => {
                 session[0].user_name + " - Profile | View User Profile";
         } else {
             let user = [];
-            let url = "http://localhost:8080/get-user";
+            let url = "http://localhost:8080/users";
             __api__.postData(url, { user_id: param.id }, res => {
                 setUser(res);
                 document.title =

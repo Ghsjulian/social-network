@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
 import { checkEmail, checkName } from "../assets/js/check.js";
@@ -12,6 +12,7 @@ const Signup = () => {
     const [name, setName] = useState("");
     const [email, setEmal] = useState("");
     const [password, setPassword] = useState("");
+    
     const success = useRef(null);
     const error = useRef(null);
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Signup = () => {
         if (userId) {
             navigate("/");
         }
-    }, [isLoggedIn]);
+    }, [userId]);
     const previewImg = e => {
         e.preventDefault();
         const image = e.target.files[0];
@@ -53,21 +54,22 @@ const Signup = () => {
     const saveUser = type => {
         if (type) {
             let url = "http://localhost:8080/signup";
-
-            __api__.postData(
-                url,
-                { name, email, password, image: base64Image },
-                res => {
-                    showMessage({ type: res.status, text: res.message });
-                    setTimeout(() => {
-                        setCookie("user_id", res.data.user_id);
-                        setCookie("user_token", res.token);
-                        dispatch({ type: "LOGIN_SUCCESS", payload: res.token });
-                        dispatch({ type: "SAVE_USER_INFO", payload: res.data });
-                        navigate("/");
-                    }, 1000);
-                }
-            );
+            let obj = {
+                name,
+                email,
+                password,
+                image: base64Image,n
+            };
+            __api__.postData(url, obj, res => {
+                showMessage({ type: res.status, text: res.message });
+                setTimeout(() => {
+                    setCookie("user_id", res.data.user_id);
+                    setCookie("user_token", res.token);
+                    dispatch({ type: "LOGIN_SUCCESS", payload: res.token });
+                    dispatch({ type: "SAVE_USER_INFO", payload: res.data });
+                    navigate("/");
+                }, 1000);
+            });
         } else {
             showMessage({ type: "error", text: "Something Went Wrong !" });
         }
@@ -117,7 +119,7 @@ const Signup = () => {
                     name="email"
                     type="text"
                     id="name"
-                    placeholder="Enter Student Name"
+                    placeholder="Enter Your Name"
                 />
                 <input
                     onChange={e => {
@@ -126,8 +128,9 @@ const Signup = () => {
                     name="email"
                     type="email"
                     id="email"
-                    placeholder="Enter Student Email"
+                    placeholder="Enter Your Email"
                 />
+
                 <input
                     onChange={e => {
                         setPassword(e.target.value);
@@ -135,8 +138,10 @@ const Signup = () => {
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Enter Student Password"
+                    placeholder="Enter Your Password"
                 />
+          
+
                 <button id="btn" onClick={SubmitForm}>
                     Create Now
                 </button>

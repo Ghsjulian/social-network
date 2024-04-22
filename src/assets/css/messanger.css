@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: block;
+    overflow: auto;
+    margin: 2rem auto;
+    position: relative;
+
+    background: #d7d7d7;
+    transition: 0.3s ease-out !important;
+    overflow-y: hidden;
+}
+.nav--bar {
+    z-index: 999;
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0.5rem 0.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+.nav--bar a {
+    text-decoration: none;
+    color: #262626;
+}
+.nav--bar a img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    display: none;
+}
+
+.nav--bar span {
+    color: #0079f6;
+    font-weight: 700;
+}
+.main {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+    gap: 10px;
+}
+.main .row {
+    background: #e7e7e7;
+    height: 90vh;
+    padding: 0 0.7rem;
+    position: relative;
+}
+
+.row .box {
+    position: relative;
+    justify-content: space-between;
+    padding: 2rem 0;
+    overflow-y: auto;
+    height: 85vh;
+    scroll-behavior: smooth;
+}
+.row .box .outgoing {
+    left: 0;
+    display: flex;
+    color: #fff;
+    margin: 0.8rem 0;
+    align-self: flex-start;
+    position: absolute;
+}
+.outgoing img {
+    margin: 0.3rem;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+.outgoing .plate {
+    padding: 0.5rem;
+    background: #007301;
+    border-radius: 15px;
+    position: relative;
+}
+
+/* Incoming Chats */
+.row .box .incoming {
+    margin: 0.8rem auto;
+    left: 100%;
+    display: flex;
+    color: #fff;
+    align-self: flex-start;
+}
+.incoming img {
+    margin: 0.2rem;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+.incoming .plate {
+    padding: 0.5rem;
+    background: #0b93ff;
+    border-radius: 15px;
+    position: relative;
+}
+.plate #message {
+    font-family: Sans-Serif;
+    margin: 0.5rem auto;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: left;
+}
+.plate #time {
+    position: absolute;
+    right: 5px;
+    bottom: 3px;
+    font-size: 8px;
+}
+
+.row .type-area {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.type-area textarea {
+    width: 80%;
+    border-radius: 10px;
+    padding: 0.3rem 0.5rem;
+    outline: none;
+    border: 1px solid #0081c6;
+    font-family: Sans-Serif;
+    font-size: 12px;
+}
+.type-area img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+.type-area button {
+    outline: none;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+/* CSS MEDIA QUERY */
+@media screen and (max-width: 768px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+    .main #connect {
+        position: fixed;
+        top: 0;
+        width: 70%;
+        height: 100vh;
+        display: none;
+        z-index: 9999;
+        animation: side-bar 0.3s linear;
+    }
+    .main #profile {
+        display: none;
+    }
+    .nav--bar span {
+        display: none;
+    }
+    .nav--bar a img {
+        display: block;
+    }
+}
+@keyframes side-bar {
+    from {
+        left: -70%;
+    }
+    to {
+        left: 1px;
+    }
+}
